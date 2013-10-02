@@ -1,7 +1,21 @@
 <!doctype html>
-<title>Hello from Flask in Cocaine</title>
-{% if name %}
-  <h1>Hi, {{ name }}! I'm Flask in Cocaine</h1>
+<title>Undev хочет футболку!</title>
+<p><h1>Осталось увидеть:</h1></p>
+{% for title, sched in data %}
+	<p><h2>{{ title }}</h2></p>
+	<table>
+	{% for time,talk in sched %}
+	<tr>
+		<td><h3>{{ time.strftime('%H:%M') }}</h3></td>
+		<td><h4>{{ talk }}</h4></td>
+	</tr>
+	{% else %}
+	<tr><td>
+		Все кончилось (
+	</td></tr>
+	{% endfor %}
+	</table>
 {% else %}
-  <h1>Flask in Cocaine</h1>
-{% endif %}
+  <h1>Всем спасибо, котаны )</h1>
+{% endfor %}
+
